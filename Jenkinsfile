@@ -36,11 +36,11 @@ pipeline {
             steps {
                 script {
                     // echo "** version init : ${params.version} **"
-                    version = sh( returnStdout: true, script: "cat package.json | grep -o 'version: [^,]*'" ).trim()
+                    version = sh( returnStdout: true, script: "cat package.json | grep -o \"version\": [^,]*'" ).trim()
                     echo "** version temp : ${version} **"
                     
-                    version = version.split(/=/)[1]
-                    version = version.replaceAll("'","").trim()
+                    version = version.split(/:/)[1]
+                    version = version.replaceAll("\"","").trim()
                     // params.put("version", tempSplit)
                     echo "** version load : ${version} **"
                 }
