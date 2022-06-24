@@ -36,7 +36,7 @@ pipeline {
             steps {
                 script {
                     // echo "** version init : ${params.version} **"
-                    version = sh( returnStdout: true, script: "cat package.json | grep -o \"version\": [^,]*'" ).trim()
+                    version = sh( returnStdout: true, script: "cat package.json | grep -o '\"version\": [^,]*'" ).trim()
                     echo "** version temp : ${version} **"
                     
                     version = version.split(/:/)[1]
