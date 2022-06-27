@@ -4,7 +4,11 @@ COPY package*.json /app/
 WORKDIR /app
 
 RUN npm install --production
-RUN npm install -g @vue/cli-service
+
+# build 시 필요한 lib nuxt 사용 시 테스트 해봐야함 
+RUN npm install @vue/cli-service
+RUN npm install @vue/cli-plugin-babel
+
 
 COPY . .
 RUN npm run build
