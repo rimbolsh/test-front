@@ -25,14 +25,14 @@ export default {
     methods: {
         getIp() {
             let _vue = this
-            this.$http.get('http://192.168.232.51/ip')
+            this.$http.get('http://slb-11505024.ncloudslb.com/api/ip')
                         .then(function(response){
                             _vue.ip = response.bodyText
                         });
         },
         getHostName() {
             let _vue = this
-            this.$http.get('http://192.168.232.51/host-name')
+            this.$http.get('http://slb-11505024.ncloudslb.com/api/host-name')
                         .then(function(response){
                             _vue.hostName = response.bodyText
                         });
